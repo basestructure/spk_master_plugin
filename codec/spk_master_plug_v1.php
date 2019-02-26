@@ -145,7 +145,6 @@ function swps_st_externals() {
                             <div><h6 class="space-bottom-half">Share Page on Social Media:</h6></div>
                             <span><div><a class="item-icon-bar icon-twitter" href="https://twitter.com/share?url='.$absolute_url.'&text='.$share_text.'" target="_blank"></a></div></span>
                             <span><div><a class="item-icon-bar icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u='.$absolute_url.'" target="_blank"></a></div></span>
-                            <span><div><a class="item-icon-bar icon-googleplus" href="https://plus.google.com/share?url='.$absolute_url.'" target="_blank"></a></div></span>
                             <span><div><a class="addthis_button_compact"></a></div></span>
                          </div>'; // <img src="http://s7.addthis.com/static/btn/sm-plus.gif" width="16" height="16" border="0" alt="Share" />
 
@@ -153,7 +152,6 @@ function swps_st_externals() {
                     <span><a class="item-icon icon-facebook" href="https://www.facebook.com/Coach.Corey.Wayne"></a></span>
                     <span><a class="item-icon icon-linkedin" href="https://www.linkedin.com/in/coachcoreywayne"></a></span>
                     <span><a class="item-icon icon-youtube" href="https://www.youtube.com/user/coachcoreywayne?sub_confirmation=1"></a></span>
-                    <span><a class="item-icon icon-googleplus" href="https://plus.google.com/+CoachCoreyWaynesOfficial/posts"></a></span>
                     <span><a class="item-icon icon-instagram" href="https://instagram.com/CoachCoreyWayne/"></a></span>
                     <span><a class="item-icon icon-pinterest" href="https://www.pinterest.com/coachcoreywayne/"></a></span>
                     <span><a class="item-icon icon-medium" href="https://medium.com/@coachcoreywayne"></a></span>
