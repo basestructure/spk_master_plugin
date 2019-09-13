@@ -9,7 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * | --------------
  * | REGISTER SHORTCODE TO HIDE GOOGLE'S OWN SCRIPTS FROM BEING TAGGED BY THEM
  * ----------------------------------------------------------------------------------------- */
-add_shortcode( 'spk_genesis_header_scripts_js', 'spk_genesis_header_scripts_js_func' );
+// ------------------------------------------------------------------------------------ commented on 20190914
+/*add_shortcode( 'spk_genesis_header_scripts_js', 'spk_genesis_header_scripts_js_func' );
 function spk_genesis_header_scripts_js_func() {
 	if( spk_bot_detected() ) {
 		return '<meta name="p:domain_verify" content="0a4ace3e1ac7c1854a32de7541879163"/>
@@ -22,14 +23,15 @@ function spk_genesis_header_scripts_js_func() {
 				  });
 				</script>';
 	}
-}
+}*/
 
 /* --------------------------------------------------------------------------------------------
  * | Genesis Footer Scripts
  * | --------------
  * | REGISTER SHORTCODE TO HIDE GOOGLE'S OWN SCRIPTS FROM BEING TAGGED BY THEM
  * ----------------------------------------------------------------------------------------- */
-add_shortcode( 'spk_genesis_footer_scripts_js', 'spk_genesis_footer_scripts_js_func' );
+// ------------------------------------------------------------------------------------ commented on 20190914
+/*add_shortcode( 'spk_genesis_footer_scripts_js', 'spk_genesis_footer_scripts_js_func' );
 function spk_genesis_footer_scripts_js_func() {
 	if( spk_bot_detected() ) {
 		return "<script> 
@@ -71,14 +73,15 @@ function spk_genesis_footer_scripts_js_func() {
 
 				</script>";
 	}
-}
+}*/
 
 /* --------------------------------------------------------------------------------------------
  * | Widget entry
  * | --------------
  * | REGISTER SHORTCODE TO HIDE GOOGLE'S OWN SCRIPTS FROM BEING TAGGED BY THEM
  * ----------------------------------------------------------------------------------------- */
-add_shortcode( 'spk_adsbygoogle_js', 'spk_hide_me_from_google_pagespeedinsights' );
+// ------------------------------------------------------------------------------------ commented on 20190914
+/*add_shortcode( 'spk_adsbygoogle_js', 'spk_hide_me_from_google_pagespeedinsights' );
 function spk_hide_me_from_google_pagespeedinsights() {
 	if( spk_bot_detected() ) {
     	return '<script async src="'.plugin_dir_url( __FILE__ )."js_external/adsbygoogle.js?ver=".date( 'YmdHis', filemtime( plugin_dir_path( __FILE__ )."js_external/adsbygoogle.js" ) ).'"></script>
@@ -92,14 +95,15 @@ function spk_hide_me_from_google_pagespeedinsights() {
 				(adsbygoogle = window.adsbygoogle || []).push({});
 				</script>';
 	}
-}
+}*/
 
 /* --------------------------------------------------------------------------------------------
  * | Widget entry
  * | --------------
  * | REGISTER SHORTCODE TO HIDE GOOGLE'S OWN SCRIPTS FROM BEING TAGGED BY THEM - 2
  * ----------------------------------------------------------------------------------------- */
-add_shortcode( 'spk_google_suggested_articles_js', 'spk_hide_me_from_google_pagespeedinsights_2' );
+// ------------------------------------------------------------------------------------ commented on 20190914
+/*add_shortcode( 'spk_google_suggested_articles_js', 'spk_hide_me_from_google_pagespeedinsights_2' );
 function spk_hide_me_from_google_pagespeedinsights_2() {
 	if( spk_bot_detected() ) {
     	return '<script async src="'.plugin_dir_url( __FILE__ )."js_external/adsbygoogle.js?ver=".date( 'YmdHis', filemtime( plugin_dir_path( __FILE__ )."js_external/adsbygoogle.js" ) ).'"></script>
@@ -112,23 +116,25 @@ function spk_hide_me_from_google_pagespeedinsights_2() {
 				     (adsbygoogle = window.adsbygoogle || []).push({});
 				</script>';
 	}
-}
+}*/
 
 /* --------------------------------------------------------------------------------------------
  * | Putting the Amazon scripts here to test if we can enqueue the scripts properly
  * ----------------------------------------------------------------------------------------- */
-add_shortcode( 'spk_amazon_market_place', 'spk_amazon_market_place_func' );
+// ------------------------------------------------------------------------------------ commented on 20190914
+/*add_shortcode( 'spk_amazon_market_place', 'spk_amazon_market_place_func' );
 function spk_amazon_market_place_func() {
 	//if( strpos( $_SERVER['HTTP_USER_AGENT'], "Google Page Speed Insights" ) == FALSE ) {
 	if( spk_bot_detected() ) {
 		return '<script src="'.plugin_dir_url( __FILE__ )."js_external/amazon_marketplace.js?ver=".date( 'YmdHis', filemtime( plugin_dir_path( __FILE__ )."js_external/amazon_marketplace.js" ) ).'"></script>';
 	}
-}
+}*/
 
 /* --------------------------------------------------------------------------------------------
  * | Function to hide scripts from bots
  * ----------------------------------------------------------------------------------------- */
-function spk_bot_detected() {
+// ------------------------------------------------------------------------------------ commented on 20190914
+//function spk_bot_detected() {
 	/*$x=0;	
 
 	$agents = array(
@@ -144,8 +150,9 @@ function spk_bot_detected() {
 
 	if( $x == count( $agents ) ) {
 		return TRUE;
-	}*/return TRUE;
-}
+	}*/
+	//return TRUE;
+//}
 
 /* --------------------------------------------------------------------------------------------
  * | Signature Shortcode
