@@ -28,9 +28,9 @@ if ( !is_admin() ) {
 	   add_action('wp_footer', 'wp_enqueue_scripts', 5);
 	   add_action('wp_footer', 'wp_print_head_scripts', 5); 
 	}*/
-	
+
+/* // DEPRECATED ON 20190919 ######################################
 	// Defer Javascripts
-/*	// ------------------------------------------------------------------------------------ commented on 20190914
 	add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
     function defer_parsing_of_js ( $url ) {
         if( FALSE === strpos( $url, '.js' ) ) return $url;
@@ -38,9 +38,8 @@ if ( !is_admin() ) {
       	
         return $url."' defer='defer";
     }
-*/
+
 	// FORCE THE CRITICAL CSS TO LOAD INLINE (INSIDE <head></head> TAGS)
-/*	// ------------------------------------------------------------------------------------ commented on 20190914
     add_action( 'wp_head', 'cor_critical_styling', 10 );
 	function cor_critical_styling() {
 		// check if critical style file exists
@@ -63,7 +62,7 @@ if ( !is_admin() ) {
 			echo '<style type="text/css">'.$spk_style_critical.$spk_soli_style.'</style>';
 		}
 	}
-*/	
+*/
 	// ADD NON-CRITICAL STYLING TO THE FOOTER
 	// NOTE: Enqueued scripts are executed at priority level 20
 	/*add_action( 'wp_footer', 'spk_delay_styling_func', 2 );
@@ -74,8 +73,8 @@ if ( !is_admin() ) {
 		}
 	}*/
 
+/* // DEPRECATED ON 20190919 ######################################
 	// DEREGISTER SCRIPTS/STYLES FROM THE FOOTER
-/*	// ------------------------------------------------------------------------------------ commented on 20190914
 	add_action( 'wp_footer', 'spk_remove_scripts_styles_footer');
 	function spk_remove_scripts_styles_footer() {
 		wp_dequeue_style( 'soliloquy-style-css' );
@@ -130,8 +129,8 @@ if ( !is_admin() ) {
  * | REPLACE THE IMAGE'S URL TO BE SPECIFIC
  * | INSTEAD OF images/name.jpg, it should be changed to FULL-URL/themes/images/name.jpg
  * ----------------------------------------------------------------------------------------- */
-/*function spk_redirect_css_image_urls( $value ) {
-	// ------------------------------------------------------------------------------------ commented on 20190914
+function spk_redirect_css_image_urls( $value ) {
+	
 	// images
 	$value = str_replace( 'images/', get_stylesheet_directory_uri().'/images/', $value );
 	$value = str_replace( "'images/", "'".get_stylesheet_directory_uri()."/images/", $value );
@@ -149,14 +148,14 @@ if ( !is_admin() ) {
 	//return spk_add_timestamps( get_stylesheet_directory_uri().'/fonts/', $value );
 	return $value;
 
-}*/
+}
 
 /* --------------------------------------------------------------------------------------------
  * | REPLACE THE SOLILOQUY'S IMAGE URLs TO BE SPECIFIC
  * | INSTEAD OF images/name.jpg, it should be changed to PLUGIN-FULL-URL/soliloquy/assets/css/images/name.jpg
  * ----------------------------------------------------------------------------------------- */
-/*function spk_redirect_soliloquy_image_urls( $value ) {
-	// ------------------------------------------------------------------------------------ commented on 20190914
+function spk_redirect_soliloquy_image_urls( $value ) {
+
 	$value = str_replace( 'images/', plugins_url().'/soliloquy/assets/css/images/', $value );
 	$value = str_replace( "'images/", "'".plugins_url()."/soliloquy/assets/css/images/", $value );
 	$value = str_replace( '"images/', '"'.plugins_url().'/soliloquy/assets/css/images/', $value );
@@ -166,25 +165,24 @@ if ( !is_admin() ) {
 
 	return $value;
 
-}*/
+}
 
 /* --------------------------------------------------------------------------------------------
  * | GET THE FILE'S TIMESTAMP AND APPEND IT AFTER THE FILE EXTENSION
  * ----------------------------------------------------------------------------------------- */
-/*function spk_add_timestamps( $path_dir, $path_url, $value, $array ){
-	// ------------------------------------------------------------------------------------ commented on 20190914
+function spk_add_timestamps( $path_dir, $path_url, $value, $array ){
 	foreach( $array as $val ) {
 		//echo $path_url.''.$val.' == '.date( 'Y-m-d H:i:s', filemtime( $path_dir.$val ) ).'<br />'; 
 		$value = str_replace( $path_url.$val, $path_url.$val.'?ver='.date( 'YmdHis', filemtime( $path_dir.$val ) ), $value );
 	}
 	return $value;
-}*/
+}
 
 /* --------------------------------------------------------------------------------------------
  * | FUNCTION TO DOWNLOAD EXTERNAL FILES
  * ----------------------------------------------------------------------------------------- */
-/*function spk_download_external_files() {
-	// ------------------------------------------------------------------------------------ commented on 20190914
+function spk_download_external_files() {
+	
 	$spk_externals = array(
 		'amazon_marketplace' 	=> 'http://z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=9f2cb097-ecee-468c-b007-0b4fcd5a22c9',
 		'adsbygoogle' 			=> 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
@@ -215,16 +213,16 @@ if ( !is_admin() ) {
 
 			$file_age = 1;
 
-			/ * $diff->d for days
+			/* $diff->d for days
 			 * $diff->h for hours
 			 * $diff->i for minutes
-			 * /
+			 */
     		if( $diff->h >= $file_age ) {
     			//echo $diff->i.' > '.$file_age.' <br />';
     			spk_download_external_files_now( $filename, $key, $value );
-    		}/ * else {
+    		}/* else {
     			echo $diff->i.' < '.$file_age.' <br />';
-    		}* /
+    		}*/
 
     	} else {
     		// file doesn't exists
@@ -233,18 +231,18 @@ if ( !is_admin() ) {
     	}
 
 	}
-}*/
+}
 
 /* --------------------------------------------------------------------------------------------
  * | DOWNLOADER FUNCTION
  * ----------------------------------------------------------------------------------------- */
-/*function spk_download_external_files_now( $filename, $key, $value ) {
-	// ------------------------------------------------------------------------------------ commented on 20190914
+function spk_download_external_files_now( $filename, $key, $value ) {
+
 	$value = file_get_contents( $value );
 
 	// facebook's JS is already minified but they added comments in it caused it to be tagged by Google for minification
 	if( $key == 'fbds' ) {
-		$value = preg_replace( '!/\*.*?\* /!s', '', $value );
+		$value = preg_replace( '!/\*.*?\*/!s', '', $value );
 		$value = preg_replace( '/\n\s*\n/', "\n", $value );
 		$value = preg_replace('/^[ \t]*[\r\n]+/m', '', $value);
 	}
@@ -253,7 +251,7 @@ if ( !is_admin() ) {
 		return TRUE;
 	}
 
-}*/
+}
 
 /* --------------------------------------------------------------------------------------------
  * | ENQUEUE SCRIPTS
